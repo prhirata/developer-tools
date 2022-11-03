@@ -34,6 +34,20 @@
           - krita
           - jq
           - mtr
+          - openjdk-8-jdk
+
+    - block:
+      - name: Download Java 11
+        become: true
+        get_url:    
+          url: 'https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz'
+          dest: /usr/lib/jvm/openjdk-11.0.2_linux-x64_bin.tar.gz
+          mode: 755
+      - name: Unzip the downloaded file
+        unarchive:
+          src: /usr/lib/jvm/openjdk-11.0.2_linux-x64_bin.tar.gz
+          dest: /usr/lib/jvm
+          remote_src: yes
 
     - block:
       - name: Verify if Oh-My-zsh is installed
