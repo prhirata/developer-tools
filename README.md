@@ -8,23 +8,27 @@ ___
 
 ## Prepare Workstation
 
-> Read the `ubuntu.yml` file before applying and be sure to understand everything that will be done.
+> Leia o arquivo `ubuntu.yml` antes de rodar os comandos abaixo e habilite/desabilite os blocos que lhe interessarem.
 
-1. Install Ansible
+1. Instalação Ansible
 ```bash
 sudo apt update && sudo apt install ansible unzip git -y
 ```
-2. Clone this repository
+2. Clonar o repositório
 ```bash
-git clone https://github.com/caiodelgadonew/tools.git
+git clone https://github.com/prhirata/developer-tools.git
 ```
 
-3. Apply the configuration
+3. Aplicar a configuração especificada no `ubuntu.yml`
 ```bash
 ansible-playbook tools/ubuntu.yml --ask-become-pass
 ```
->Type your password when asked to give root permissions for some actions.
+>Digite sua senha quando solicitado para dar permissão root em algumas ações.
 ___
+
+## Testing playbook on Multipass VM
+
+Access url: https://www.ivankrizsan.se/2021/05/16/ansible-and-multipass-virtual-machines/
 
 # License
 GPLv3
@@ -33,3 +37,5 @@ GPLv3
 Created by [Caio Delgado](https://linktr.ee/caiodelgadonew)
 
 Contributions are more than welcome!
+
+Modified by [Paulo Hirata]
