@@ -231,15 +231,16 @@
         shell:
           cmd: code --install-extension '{{ item }}' 
         loop: 
-          - vscode-icons-team.vscode-icons
-          - ms-python.python
+          - PKief.material-icon-theme
           - ms-azuretools.vscode-docker
-          - bbenoist.vagrant
           - hashicorp.terraform
           - gruntfuggly.todo-tree
           - eamodio.gitlens
           - redhat.java
+          - redhat.vscode-xml
+          - redhat.vscode-yaml
           - vscjava.vscode-maven
+          - vscjava.vscode-gradle
           - vscjava.vscode-java-dependency
           - vscjava.vscode-java-debug
           - vscjava.vscode-java-pack
@@ -380,3 +381,12 @@
         become: true
         apt:
           name: ulauncher
+
+    - block:
+      - name: Download dbeaver-ce
+        get_url: 
+          url='https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb'
+          dest='/opt/ansible_downloads/dbeaver-ce-latest'
+      - name: Install dbeaver for Debian OS family
+          apt: deb='/opt/ansible_downloads/dbeaver-ce-latest'
+            
