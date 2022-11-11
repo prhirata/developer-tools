@@ -384,9 +384,11 @@
 
     - block:
       - name: Download dbeaver-ce
+        become: true
         get_url: 
           url='https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb'
           dest='/opt/ansible_downloads/dbeaver-ce-latest'
       - name: Install dbeaver for Debian OS family
-          apt: deb='/opt/ansible_downloads/dbeaver-ce-latest'
+        become: true
+        apt: deb='/opt/ansible_downloads/dbeaver-ce-latest'
             
